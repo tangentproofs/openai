@@ -49,6 +49,11 @@ diffusion, and it quantifies over all of them instead of "the" measure and "the"
 7. **Which proof.** This site explains the proof OpenAI published in openai/math. Prove2Me lists a separately submitted
    accepted solution to the same target; its source isn't public on the mission page, and nothing here describes it.
 
+8. **One Brownian system at a time.** `parisi W γ` is computed with a given Brownian system `W`, and `IsMinimizer W γ`
+   compares order parameters for that same `W`. Mathematically the value depends only on the law of Brownian motion,
+   but the Lean never proves that P is the same for every `W`. The theorem simply fixes one `W` in the hypothesis and
+   the conclusion, so nothing is lost; it just isn't stated as a fact about P alone.
+
 ## Honesty audit of this site
 
 An independent model session (a separate Claude agent, not the one that wrote the nodes) audited every node, quiz
@@ -56,4 +61,17 @@ answer key and page against the Lean, following
 [prompts/honesty-audit.md](https://github.com/tangentproofs/openai/blob/main/prompts/honesty-audit.md). Its full report
 is [sites/sk-full-support/SK_FULL_SUPPORT_AUDIT.md](https://github.com/tangentproofs/openai/blob/main/sites/sk-full-support/SK_FULL_SUPPORT_AUDIT.md).
 
-AUDIT_SUMMARY_PLACEHOLDER
+**Verdict: PASS WITH FIXES.** The auditor found the headline and all 16 definitions faithful to the Lean, with no
+hypothesis that smuggles in the conclusion. It checked every node's line references against the source (all 52
+matched), re-ran the Trust page's source checks (all held), and found no authorship claims beyond the upstream
+README. It made 12 fixes, all already applied:
+
+- six paper citations corrected (e.g. Proposition 5.1 says q′, not q, is strictly convex; a paraphrase had been shown as a quote);
+- one wrong quiz answer key: it had implied the constructed X never equals B, which fails when γ = 0;
+- "checked by `ring`" reworded to "proved by `ring` in the source", because this site did not build the Lean;
+- two clarifications: the Lean never defines the SK Hamiltonian, and minimality is for the same `W` as in the conclusion;
+- the Start-page note no longer suggests the theorem itself is in Model.lean.
+
+Remaining concerns it raised: the minimizer-existence gap (caveat 1); the dependence on `W` (caveat 8); the Atlas and
+Prove2Me descriptions on Trust were checked by a separate fetch, not by the auditor; and the proof-graph edges come from
+a text scan and were not audited.

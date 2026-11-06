@@ -254,7 +254,7 @@ node("minimizer_variational_inequality", "First variation: a minimizer can't be 
 so it can't beat γ. Dividing the (nonnegative) change in P by ε and letting ε → 0 gives the derivative of P in that
 direction, which the proof computes as ½ ∫ (β − γ)(q − t) (`parisi_chord_derivative`). That is the hard analytic step:
 differentiating the value function with respect to the order parameter.
-""" + paper("Lemma 6.1", "“d/dε P(γ + εη) at ε = 0+ equals ½ ∫₀¹ η(t)(q(t) − t) dt,” for admissible integrable directions η."),
+""" + paper("Lemma 6.1, (6.1)", "the right derivative at ε = 0 of P(γ + εη) equals ½ ∫₀¹ η(t)(q(t) − t) dt, for every η ∈ L¹(0,1) such that γ + εη ∈ U for all small ε ≥ 0 (paraphrase)."),
  [q("Which directions are compared?", ["Toward any other order parameter β", "Only small bumps"], 0, "β ranges over all OrderParameters."),
   q("Why stay inside order parameters along the way?", ["The segment between two order parameters consists of order parameters", "It doesn't"], 0, "Nonnegativity, monotonicity, right-continuity and integrability survive convex combinations."),
   q("How does this differ slightly from the paper's Lemma 6.1?", ["Lean uses chords toward another order parameter; the paper allows any admissible integrable direction", "No difference"], 0,
@@ -321,7 +321,7 @@ convex there.
 **Why.** On a constant stretch, the second derivative of q′ is computed explicitly as `stripThird … c t`, the expectation of
 c⁻²·(z² − 12 v w² + 6 v⁴) in the paper's notation ([stripThird](#/node/stripThird)). Its positivity is
 [stripThird_pos](#/node/stripThird_pos), which rests on the coercive identity. This is the heart of the paper.
-""" + paper("Proposition 5.1", "“If c > 0, then q is strictly convex on I; more precisely … q‴(t) ≥ (1/(1000c²)) E v(t,X_t)⁴ > 0.”"),
+""" + paper("Proposition 5.1", "“If c > 0, then q′ is strictly convex on I; more precisely … q‴(t) ≥ (1/(1000c²)) E v(t,X_t)⁴ > 0.”"),
  [q("What is positive?", ["The second derivative of q′ (= q‴)", "q′ itself"], 0, "`0 < (deriv^[2] (curvatureMoment W γ)) t`."),
   q("Is the constant c allowed to be 0 here?", ["No, c > 0; zero_gap_curvature handles 0", "Yes"], 0, "The hypothesis `hc0 : 0 < c`."),
   q("Does this assume anything about the support?", ["No", "Yes, full support"], 0, "Only that γ is constant on (a,b). The paper stresses this is unconditional."),
@@ -390,7 +390,7 @@ all evaluated at (t, X_t) ([actualJet](#/node/actualJet)).
 inequalities for the density of X, and the exact [rational identity](#/node/Certificate.rational_identity) plus one
 integration by parts give the bound. Then pass to the limit along approximations of γ: both sides converge, and the
 inequality survives.
-""" + paper("Sections 3–5", "finite-step shape inequalities (Section 3), the exact coercive identity (Section 4, Proposition 4.2), and the transfer to arbitrary integrable coefficients (Section 5)."),
+""" + paper("Sections 3–5", "finite-step shape inequalities (Section 3), the exact coercive identity and its integrated form (Section 4, Lemma 4.1 and Proposition 4.2), and the transfer to arbitrary integrable coefficients (Section 5)."),
  [q("How is the inequality obtained for general γ?", ["Proved for smooth finite-step approximations, then a limit", "Directly"], 0, "le_of_tendsto_of_tendsto with sample_coercivity."),
   q("Is any convergence of the auxiliary density scores needed?", ["No, only the two integrals converge", "Yes"], 0, "The paper stresses only the integrated inequality is transferred."),
   q("What is c?", ["γ(t)", "1"], 0, "`γ.val t`."),
@@ -431,15 +431,15 @@ node("Certificate.rational_identity", "The exact rational identity",
 z² − 12·R·v·b² + 6·v⁴ = (z + Q)² + (z + bv − 2Rb)·T + (weighted squares) + WF₂ + L·(x₀v² + hbv) + (remainder),
 
 where Q, T, the weighted squares P₀…P₄, the correction WF₂ and the remainder are explicit polynomials with rational
-coefficients defined at the top of the file (Density/Certificate.lean lines 10–60). It's checked by Lean's `ring` tactic:
-pure algebra, no numerical approximation.
+coefficients defined at the top of the file (Density/Certificate.lean lines 10–60). The source proves it with Lean's `ring` tactic:
+pure algebra, no numerical approximation. (This site did not build the Lean; see [Trust](#/trust).)
 
 `pointwise_coercivity` (lines 107–122) then uses the sign information that the shape inequalities provide
 (R, K, v, j, L ≥ 0, b ≥ 2v, z + bv − 2Rb ≥ 0) to drop the nonnegative terms and keep (1661507/1521000000)·v⁴ + WF₂.
 After weighting by the density of X and integrating in x, the WF₂ term is the derivative of a flux that vanishes at ±∞
 (`integrated_coercivity_of_flux`, lines 165–194), so it integrates to zero, leaving the coercive bound.
-""" + paper("Section 4", "“an exact rational polynomial identity [that is] nonnegative after one spatial integration by parts, retaining the lower bound 10⁻³ E v⁴.”"),
- [q("How is the identity verified in Lean?", ["`ring`: symbolic algebra", "`native_decide`", "numerically"], 0, "Density/Certificate.lean line 69."),
+""" + paper("Section 1.2, summarizing Lemma 4.1 (4.11) and Proposition 4.2", "“an exact rational polynomial identity [that is] nonnegative after one spatial integration by parts, retaining the lower bound 10⁻³ E v⁴.”"),
+ [q("How does the Lean source prove the identity?", ["`ring`: symbolic algebra", "`native_decide`", "numerically"], 0, "Density/Certificate.lean line 69."),
   q("Which coefficient gives the final constant?", ["1661507/1521000000 on v⁴, which exceeds 1/1000", "1/2"], 0, "coercivity_constant (line 124) checks it by `norm_num`."),
   q("Are the sign conditions part of the identity?", ["No, the identity holds for all reals; signs are used afterwards", "Yes"], 0, "The identity is unconditional; pointwise_coercivity adds hypotheses."),
  ],
@@ -484,7 +484,7 @@ where `driver` is a progressively measurable version of the Brownian motion that
 and `rawFeedback(s)` is the [gradient](#/node/gradient) at (s, X̃_s) for an auxiliary solution X̃ (`rawDiffusion`), built by
 Picard iteration on compact time strips [0, T], T < 1 (set to 0 from time 1 on; the gradient is proved to satisfy |gradient| ≤ 1).
 [diffusion_isDiffusion](#/node/diffusion_isDiffusion) shows it satisfies [IsDiffusion](#/node/IsDiffusion).
-""" + paper("Lemma 2.2", "the drift is bounded and Lipschitz in space on every compact time strip, so (1.5) “has a unique strong solution up to time one.”"),
+""" + paper("page 2, citing Lemma 2.2", "the drift is bounded and Lipschitz in space on every compact time strip, so (1.5) “has a unique strong solution up to time one, as proved in Lemma 2.2.”"),
  [q("What is `driver`?", ["A progressively measurable version of B, equal to B almost surely", "A different Brownian motion"], 0, "driver_progressive and driver_indistinguishable (Diffusion/ProgressiveBrownian.lean lines 93–110)."),
   q("How is the solution built?", ["Picard iteration on compact strips [0,T] with T < 1", "Euler scheme only"], 0, "Diffusion/PicardDiffusion.lean and CompactDrift.lean."),
   q("Why is the drift integrable even though γ may blow up near 1?", ["|gradient| ≤ 1 and γ is integrable", "It isn't"], 0, "rawDrift_integrable uses `γ.integrable.mul_bdd`."),
@@ -501,7 +501,7 @@ diffusion's own position for s < 1, and γ's zero extension vanishes at s = 1.
 """,
  [q("Which part of the conclusion does this give?", ["Existence of a diffusion", "Uniqueness"], 0, "Part 2 of FullSupportConclusion."),
   q("What happens at s = 1?", ["extend γ 1 = 0, so the integrand is 0 there anyway", "Nothing special"], 0, "The last case of the proof."),
-  q("Is X = B almost surely?", ["No, X = B + drift", "Yes"], 0, "The drift is part of X."),
+  q("Is the constructed X simply B?", ["Not in general: X = B + ∫ γ·feedback, which reduces to B only if that drift vanishes (e.g. γ = 0)", "Yes, always"], 0, "The drift is part of X; it is zero only when γ times the feedback integrates to 0."),
  ])
 
 node("diffusion_uniqueness", "Uniqueness: every diffusion equals the constructed one",
@@ -513,7 +513,7 @@ agrees with the [constructed diffusion](#/node/diffusion), on one almost-sure ev
 with T < 1 the drift is bounded and Lipschitz in space, so the Picard solution is unique there; at t = 1 both processes satisfy the same integral equation, whose integrand agrees with the constructed one for s < 1 (and vanishes at s = 1).
 
 This is what lets [full_support](#/node/full_support) state the moment identities for **every** diffusion.
-""" + paper("Lemma 2.2", "“a unique strong solution up to time one.”"),
+""" + paper("Lemma 2.2", "(2.10) “has a unique strong solution on [0,1].”"),
  [q("What does uniqueness give the headline theorem?", ["The identities for every diffusion, not just the constructed one", "Full support"], 0, "Main.lean lines 44–59."),
   q("Why do the moments then agree?", ["The two processes are a.s. equal at time t, so the integrals agree", "By symmetry"], 0, "integral_congr_ae."),
   q("Is uniqueness assumed anywhere?", ["No, it's proved", "Yes"], 0, "It's a theorem in Diffusion/Uniqueness.lean."),

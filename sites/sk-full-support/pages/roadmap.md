@@ -48,7 +48,7 @@ a chord gives the [first variation](#/node/minimizer_variational_inequality): �
 **Gap curvature (the heart of the paper).** On a stretch where γ is a constant c > 0, q′ is strictly convex. The third
 derivative of q there is an explicit expectation, [stripThird](#/node/stripThird), whose integrand
 z² − 12 v w² + 6 v⁴ has a negative middle term. An exact [rational identity](#/node/Certificate.rational_identity)
-(checked by `ring`), together with sign information about the value function and the density of X on smooth
+(proved by `ring` in the source), together with sign information about the value function and the density of X on smooth
 finite-step approximations, shows its expectation is at least (1/1000)·E[v⁴] > 0. The inequality then passes to the
 limit for the actual γ.
 

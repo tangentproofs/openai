@@ -7,7 +7,11 @@
  "storagePrefix": "tp-openai",
  "credit": "written by Claude (AI)",
  "aboutCredit": "for [the tangentproofs/openai explainer index](../)",
- "giscus": { "repoId": "", "category": "Announcements", "categoryId": "" },
+ "giscus": {
+  "repoId": "R_kgDOVlrG4w",
+  "category": "Announcements",
+  "categoryId": "DIC_kwDOVlrG484DKjZx"
+ },
  "page": {
   "desc": "Unofficial, AI-assisted plain-English explainers of Lean proofs published in OpenAI's openai/math repository.",
   "brandHtml": "openai/math <em>explained</em>",

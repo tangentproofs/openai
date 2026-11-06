@@ -274,3 +274,5 @@ a.srcref { border-bottom: 1px dotted var(--blue); } a.srcref:hover { text-decora
 @media (max-width: 600px) { .disclaimer { padding: .75rem 1rem; font-size: 16px; } .disclaimer a { padding: 10px 0; } }
 @media (max-width: 900px) { .graph-wrap { grid-template-columns: minmax(0, 1fr); } .graph-wrap > * { min-width: 0; } }
 @media (max-width: 600px) { html, body { overflow-x: hidden; } main { padding: 1rem; overflow-wrap: anywhere; } main h1, main h2 { overflow-wrap: anywhere; } header.top nav a { display: inline-flex; align-items: center; min-height: 44px; } }
+/* larger "not official documentation" heading in the banner */
+.disclaimer b.big { display: block; font-size: 1.25rem; letter-spacing: .01em; margin-bottom: .15rem; }

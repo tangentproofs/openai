@@ -66,7 +66,7 @@ then transfers the moment identities to *any* diffusion using
      "Any mixed p-spin model",
      "SK with an arbitrary external field h",
      "The SK model at positive temperature"], 0,
-    "The paper fixes ξ(t)=t²/2 and zero field, and says neither a nonzero-field nor a mixed-spin extension is implied (p. 2)."),
+    "The paper fixes ξ(t)=t²/2 and zero field, and says neither a nonzero-field nor a mixed-spin extension is implied (p. 2). The Lean itself never defines the SK Hamiltonian: it states the result for the explicitly defined functional with this normalization."),
   q("What is the role of the file ComparatorChallenges/SKFullSupport.lean?",
     ["It is the target statement (ending in `sorry`) that a proof must match",
      "It is the proof",
@@ -344,6 +344,10 @@ node("IsMinimizer",
 
 This is a genuine global minimum. It is not a local minimum, not a stationarity condition, and it does not mention
 support. Nothing smuggles the conclusion into this hypothesis.
+
+The functional is computed with the same Brownian system `W` that appears in the conclusion: `IsMinimizer W γ`
+is minimality of `parisi W ·`. The Lean does not separately state that P is the same for every choice of `W`; the
+theorem simply fixes one `W` throughout, hypothesis and conclusion alike.
 """ + paper("page 2, Theorem 1.1", "“If γ ∈ U minimizes P …”")
  + "\n" + SAME.format("lines 62–63") + "\n",
  [q("Over which set is γ compared?", ["All order parameters η", "Order parameters close to γ", "Step functions only"], 0, "`∀ η : OrderParameter, …` (Model.lean line 63)."),
