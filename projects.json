@@ -20,7 +20,7 @@
    "talkUrl": null,
    "license": "Apache-2.0",
    "description": "Every minimizer of the zero-temperature Parisi functional for the pure SK model has full support on [0,1).",
-   "nodeCount": 17
+   "nodeCount": 52
   }
  ],
  "others": []
