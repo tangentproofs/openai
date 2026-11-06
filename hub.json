@@ -1,0 +1,25 @@
+{
+ "name": "OpenAI math proofs, explained (unofficial)",
+ "baseUrl": "https://tangentproofs.github.io/openai/",
+ "repo": "tangentproofs/openai",
+ "indexLabel": "All explainers",
+ "indexBlurb": "the tangentproofs/openai explainer index, an independent fan index",
+ "storagePrefix": "tp-openai",
+ "credit": "written by Claude (AI)",
+ "aboutCredit": "for [the tangentproofs/openai explainer index](../)",
+ "giscus": { "repoId": "", "category": "Announcements", "categoryId": "" },
+ "page": {
+  "desc": "Unofficial, AI-assisted plain-English explainers of Lean proofs published in OpenAI's openai/math repository.",
+  "brandHtml": "openai/math <em>explained</em>",
+  "taglineHtml": "Lean&nbsp;4 proofs from <a href=\"https://github.com/openai/math\">openai/math</a>, read back into <em>plain English</em>: the statement, the definitions it needs, a proof map, and an honest account of what was checked.",
+  "navHtml": "",
+  "notesHtml": "<div class=\"fan big-disclaimer\"><p><b>Not official documentation.</b> This site is an independent, unofficial, AI-assisted explainer. It is not written, reviewed, endorsed or maintained by OpenAI or by anyone connected with openai/math, Prove2Me, or the mathematicians cited in the papers. The explanations may contain mistakes. The Lean source and the papers are the ground truth; each explainer pins the exact upstream commit it describes and links every claim back to it.</p><p>Quoted Lean source remains © OpenAI under the Apache License 2.0. The explainer code in this repository is MIT-licensed.</p></div>",
+  "projectsHeading": "Explainers",
+  "talkLabel": "talk",
+  "talkDefaultUrl": "",
+  "othersHeading": "Others",
+  "othersIntro": "",
+  "suggestHtml": "<p class=\"optout\">Corrections, questions, or take-down requests: <a href=\"https://github.com/tangentproofs/openai/issues\">open an issue</a> or use the comments on any node.</p>",
+  "footerHtml": "Unofficial. Not affiliated with OpenAI."
+ }
+}

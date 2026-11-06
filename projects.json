@@ -1,0 +1,27 @@
+{
+ "projects": [
+  {
+   "slug": "sk-full-support",
+   "name": "SK full support (zero temperature)",
+   "kind": "Lean",
+   "explainer": true,
+   "repo": "openai/math",
+   "submodule": "projects/openai-math",
+   "sha": "adc7f1241b42e322a6451854ab7e4b4c146bf78a",
+   "members": [
+    {
+     "name": "OpenAI",
+     "profile": "https://github.com/openai"
+    }
+   ],
+   "authors": "OpenAI",
+   "authorUrl": "https://github.com/openai",
+   "talk": null,
+   "talkUrl": null,
+   "license": "Apache-2.0",
+   "description": "Every minimizer of the zero-temperature Parisi functional for the pure SK model has full support on [0,1).",
+   "nodeCount": 17
+  }
+ ],
+ "others": []
+}
