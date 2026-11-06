@@ -34,7 +34,7 @@ diffusion, and it quantifies over all of them instead of "the" measure and "the"
    theorem would hold vacuously. No reason to expect that is known here, but it is not ruled out in Lean.
 2. **No link to spin glasses in Lean.** The SK Hamiltonian and the formula "limit of the ground-state energy = min P"
    (1.4) are cited background in the paper and do not appear in the Lean. The Lean theorem is about the explicitly
-   defined control problem and functional; the paper says its support argument is likewise "for any minimizer of the
+   defined control problem and functional; the paper likewise says "the proof of the support assertion itself applies to any minimizer of the
    explicitly defined functional (1.3)".
 3. **[0,1), not [0,1].** Support is relative to [0,1); the statement says nothing at t = 1. The measure need not be a
    probability measure and may have infinite mass near 1.
